@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+<title>endbands</title>
+<link rel="shortcut icon" href="favicon.png" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name = "viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<link rel="apple-touch-icon" href=""/>
+
+<link type="text/css" rel="stylesheet" href="css/style.css">
+<script type="text/javascript" src="//use.typekit.net/onc3eaa.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<script src="js/lib/LAB.min.js" type="text/javascript"></script>
+<script>
+$LAB
+.script("js/lib/hammer.js")
+.script("js/lib/handlebars.min.js")
+.script("js/lib/jquery-1.8.2.min.js")
+.script("js/lib/underscore-min.js").wait()
+.script("js/lib/jquery.easing.1.3.js")
+.script("js/lib/jquery.hammer.js")
+.script("js/lib/backbone-min.js").wait()
+.wait(function(){
+	window.Endbands = {
+		Models: {},
+		Collections: {},
+		Views: {},
+		app: {}
+	}
+}).wait()
+.script("js/models.js").wait()
+.script("js/views.js").wait()
+.wait(function(){
+	Endbands.init();
+	
+	$('.desc-toggle').click(function(ev){
+		$('.app-desc').toggleClass('hidden');
+	});
+});
+</script>
+</head>
+<body>
+<div class="phone">
+<div id="viewport">	
+	<div id="wrapper">
+		<div id="slider"><p><span>I've read:</span><a>0</a></p></div>
+		<div id="book" class="panel"></div>
+	</div>
+</div>
+</div>
+
+<div class="app-desc">
+<div class="desc-toggle"><span></span></div>
+<div class="wrap">
+<h1>Endbands</h1>
+<h2>Medium-Fidelity Prototype</h2>
+<p>Endbands attempts to simplify the difficulties of keeping track of one's reading progress.</p><p> It's goal is to be simple, fast, and increasingly intuitive, minimizing the commitments of time and attention. Endbands aims to promote a movement between reading, documenting, and further engagements that can happen fluidly, in a non-disruptive manner. </p>
+<ul>
+<li><img src="../images/pull-refresh.png"/> <p>pull to add</p></li>
+<li><img src="../images/lib-slide.png"/> <p> slide for libraries </p></li>
+<li><img src="../images/hold-details.png"/> <p> hold book for info </p></li>
+</ul>
+<br/>
+<p> Original Background Photo by <a href="http://dribbble.com/shots/664956-10-Free-Backgrounds">Matt Gentile</a>
+<p> IPhone5 Template by <a href="http://www.teehanlax.com/downloads/ios-6-gui-psd-iphone-5/">Teehan+Lax</a>
+<div>
+</div>
+</body>
+</html>

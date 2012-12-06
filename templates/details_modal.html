@@ -1,0 +1,26 @@
+<div class="modal-top delete">Delete Book</div>
+<div class="modal-main">
+<h2> edit details</h2>
+<form>
+<ul class="tabs"><li class="selected" data-tab="details">details</li><li data-tab="library-select">library</li></ul>
+<div class="tab details">
+<input type="text" name="book-title" value = "{{title}}" defaultValue="{{title}}" data-keep="true"/>
+<span class="extra"><input type="text" name="book-author" value = "{{fullname author}}" defaultValue="{{fullname author}}" data-keep="true" /></span>
+<label class="book-pages">Page Count : </label><input class="book-pages" type="text" name="book-pages" value="{{pageCount}}" defaultValue="{{pageCount}}"/>
+</div>
+<div class="tab library-select">
+<ul class="list-select">
+{{#each_with_index lib-list}}
+<li><input type="radio" name="list" value="{{this.index}}" id="list{{this.index}}" {{#equals this.index ../library}} checked="checked" {{/equals}}> <label for="list{{this.index}}">{{this.value}}</label></li>
+{{/each_with_index}}
+</ul>
+<div id="new-list">create new list</div>
+</div>
+<ul class="controls">
+<li><a class="button cancel">cancel</a></li>
+<li><a class="button save">save</a></li>
+</ul>
+</form>
+</div>
+<div id="modal-screen">
+</div>
