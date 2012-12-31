@@ -721,7 +721,37 @@ label.book-pages {
 .modal input[type="radio"]:checked + label {
 	border: 1px solid red;
 }
-
-
-
 /* @end  ------------------------------------------------- */
+
+@media all and (max-width: 500px){  /* quick hack to switch to smartphone preview */
+	html,body {
+		background: none;
+	}
+	.app-desc {
+		display: none;
+	}
+	.phone {
+		background: none;
+		height: 100%;
+		width: 100%;
+		min-height: 0;
+		margin: 0;
+		display: block;
+	}
+	#viewport {
+		width: 100%;
+		height: 100%;
+		top: 0;
+		right: 0;
+		position: absolute;
+	}
+	.panel {
+		width: 480px;
+		min-height: 100%;
+	}
+	#slider {
+		top: -100%;
+		width: 480px;
+	}
+}
+

@@ -366,7 +366,7 @@ class Endbands.Views.BookPanelView extends Backbone.View
 									.queue(() => @render())
 								
 					
-					$("#slider").animate({"top": "-568px"},1550,"easeOutElastic")
+					$("#slider").animate({"top": "-"+document.documentElement.clientHeight+"px"},1550,"easeOutElastic")
 					@newEvent = false
 			)
 	
@@ -411,8 +411,10 @@ class Endbands.Views.MainView extends Backbone.View
 	panel:1
 	totalPanels:3
 	inTransition:false
+	viewportSize: document.documentElement.clientWidth;
 	
 	initialize: ->
+	
 		$(@el).hammer({prevent_default:true})
 			.on("swipe", (ev) =>
 				if not @inTransition
@@ -435,13 +437,13 @@ class Endbands.Views.MainView extends Backbone.View
 		@inTransition = false
 	backPanel: ()=>
 		if @panel > 1
-			$(@el).animate({right:'+=320'},300)
+			$(@el).animate({right:'+='+@viewportSize+"px"},300)
 			@panel--
 			@inTransition = false
 	forwardPanel: ()=>
 		
 		if @panel < @totalPanels
-			$(@el).animate({right:'-=320px'},300)
+			$(@el).animate({right:'-='+@viewportSize+"px"},300)
 			@panel++
 			@inTransition = false
 

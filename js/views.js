@@ -599,7 +599,7 @@
             return _this.render();
           });
           $("#slider").animate({
-            "top": "-568px"
+            "top": "-" + document.documentElement.clientHeight + "px"
           }, 1550, "easeOutElastic");
           return _this.newEvent = false;
         }
@@ -671,6 +671,8 @@
 
     MainView.prototype.inTransition = false;
 
+    MainView.prototype.viewportSize = document.documentElement.clientWidth;
+
     MainView.prototype.initialize = function() {
       var _this = this;
       $(this.el).hammer({
@@ -718,7 +720,7 @@
     MainView.prototype.backPanel = function() {
       if (this.panel > 1) {
         $(this.el).animate({
-          right: '+=320'
+          right: '+=' + this.viewportSize + "px"
         }, 300);
         this.panel--;
         return this.inTransition = false;
@@ -728,7 +730,7 @@
     MainView.prototype.forwardPanel = function() {
       if (this.panel < this.totalPanels) {
         $(this.el).animate({
-          right: '-=320px'
+          right: '-=' + this.viewportSize + "px"
         }, 300);
         this.panel++;
         return this.inTransition = false;
